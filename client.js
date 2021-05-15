@@ -16,6 +16,7 @@ window.onload = function () {
 	document.getElementById("myBtn").addEventListener("click", function () {
 		console.log("Sending info to extension");
 
+		if (chrome) console.log("chrome is defined");
 		chrome.runtime.sendMessage(
 			editorExtensionId,
 			{ openUrlInEditor: url },
