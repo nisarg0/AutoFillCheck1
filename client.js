@@ -16,15 +16,16 @@ window.onload = function () {
 	document.getElementById("myBtn").addEventListener("click", function () {
 		console.log("Sending info to extension");
 
-		if (chrome) console.log("chrome is defined");
-		chrome.runtime.sendMessage(
-			editorExtensionId,
-			{ openUrlInEditor: url },
-			function (response) {
-				console.log("msg sent");
-				if (!response.success) handleError(url);
-			}
-		);
+		// if (chrome) console.log("chrome is defined");
+
+		// chrome.runtime.sendMessage(
+		// 	editorExtensionId,
+		// 	{ openUrlInEditor: url },
+		// 	function (response) {
+		// 		console.log("msg sent");
+		// 		if (!response.success) handleError(url);
+		// 	}
+		// );
 
 		// if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
 		// 	chrome.runtime.sendMessage(
