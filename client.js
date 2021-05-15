@@ -15,15 +15,15 @@ window.onload = function () {
 	document.getElementById("myBtn").addEventListener("click", function () {
 		console.log("Sending info to extension");
 
-		// if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
-		// 	chrome.runtime.sendMessage(
-		// 		"feneepekkegnbffjepdhkdiggmebjifo",
-		// 		{ greeting: "yes" },
-		// 		onAccessApproved
-		// 	);
-		// } else {
-		// 	console.log("No chrome");
-		// }
+		if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
+			chrome.runtime.sendMessage(
+				"feneepekkegnbffjepdhkdiggmebjifo",
+				{ greeting: "yes" },
+				onAccessApproved
+			);
+		} else {
+			console.log("No chrome");
+		}
 	});
 };
 
