@@ -11,8 +11,8 @@
 // 	}
 // }
 
-const url = "https://www.facebook.com/";
 window.onload = function () {
+	const url = "https://www.facebook.com/";
 	document.getElementById("theButton").addEventListener(
 		"click",
 		function () {
