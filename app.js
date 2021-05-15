@@ -116,6 +116,7 @@ function genMessage(
 		passwordFieldName: passwordFieldName,
 	};
 }
+
 async function parsePage(data, url) {
 	console.log("103");
 	// var temp = "<strong>Beware of the leopard</strong>";
