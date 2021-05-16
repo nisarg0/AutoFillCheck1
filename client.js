@@ -28,16 +28,38 @@
 // 	);
 // };
 
+function genMessage(
+	site,
+	username,
+	password,
+	userNameFieldName,
+	passwordFieldName
+) {
+	return {
+		site: site,
+		username: username,
+		password: password,
+		userNameFieldName: userNameFieldName,
+		passwordFieldName: passwordFieldName,
+	};
+}
+
 console.log("added window.omload1");
 window.onload = function () {
 	document.getElementById("myBtn").addEventListener("click", function () {
 		console.log("Sending info to extension");
-		url = "https://www.google.com/";
+		Messege = genMessage(
+			url,
+			"nisarg",
+			"12345678",
+			"username",
+			"user_pass"
+		);
 		// if (chrome) console.log("chrome is defined");
 		var editorExtensionId = "eanfbmfpilfndlojhlhmmneakpaoggak";
 		chrome.runtime.sendMessage(
 			editorExtensionId,
-			{ openUrlInEditor: url },
+			Messege,
 			function (response) {
 				console.log("msg sent");
 				if (!response.success) handleError(url);
