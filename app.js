@@ -89,18 +89,6 @@ const ExcludedAutofillTypes = [
 //   return usernameField;
 // }
 
-class AutofillPageDetails {
-	constructor() {
-		documentUUID: string;
-		title: string;
-		url: string;
-		documentUrl: string;
-		tabUrl: string;
-		// forms: { [id: string]: AutofillForm; };
-		fields: AutofillField;
-		collectedTimestamp: number;
-	}
-}
 function genMessage(
 	site,
 	username,
@@ -156,23 +144,6 @@ async function parsePage(data, url) {
 	}
 	return genMessage(url, "nisarg", "12345678", "username", "user_pass");
 }
-// IMP LINK -> https://developer.chrome.com/docs/extensions/mv3/messaging/#external-webpage
-// https://krasimirtsonev.com/blog/article/Send-message-from-web-page-to-chrome-extensions-background-script#:~:text=addEventListener(%22hello%22%2C%20function,one%20to%20the%20background%20script.
-// function SendData(url) {
-// 	// console.log(url);
-// 	if (typeof window === "undefined") {
-// 		console.log("Oops, `window` is not defined");
-// 		return;
-// 	}
-// 	window.postMessage(
-// 		{
-// 			type: "FROM_PAGE_TO_CONTENT_SCRIPT",
-// 			text: "Hello from the webpage!",
-// 		},
-// 		"*"
-// 	);
-// }
-// }
 
 // ------------------------------------Server details---------------------------------
 // Calls the site and seds its html body
