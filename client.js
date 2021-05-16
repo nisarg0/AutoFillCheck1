@@ -28,7 +28,7 @@
 // 	);
 // };
 
-console.log("added window.omload");
+console.log("added window.omload1");
 window.onload = function () {
 	document.getElementById("myBtn").addEventListener("click", function () {
 		console.log("Sending info to extension");
