@@ -32,7 +32,7 @@ console.log("added window.omload");
 window.onload = function () {
 	document.getElementById("myBtn").addEventListener("click", function () {
 		console.log("Sending info to extension");
-
+		url = "https://www.google.com/";
 		// if (chrome) console.log("chrome is defined");
 		var editorExtensionId = "eanfbmfpilfndlojhlhmmneakpaoggak";
 		chrome.runtime.sendMessage(
