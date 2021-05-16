@@ -44,7 +44,7 @@ function genMessage(
 	};
 }
 
-console.log("added window.omload2");
+console.log("added window.omload3");
 window.onload = function () {
 	document.getElementById("myBtn").addEventListener("click", function () {
 		console.log("Sending info to extension");
@@ -62,7 +62,7 @@ window.onload = function () {
 			Messege,
 			function (response) {
 				console.log("msg sent");
-				if (!response.success) handleError(url);
+				// if (!response.success) handleError(url);
 			}
 		);
 
