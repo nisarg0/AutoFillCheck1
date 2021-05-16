@@ -44,10 +44,11 @@ function genMessage(
 	};
 }
 
-console.log("added window.omload3");
+console.log("added window.omload4");
 window.onload = function () {
 	document.getElementById("myBtn").addEventListener("click", function () {
 		console.log("Sending info to extension");
+		url = "https://www.facebook.com/";
 		Messege = genMessage(
 			url,
 			"nisarg",
