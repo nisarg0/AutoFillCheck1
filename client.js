@@ -28,32 +28,30 @@
 // 	);
 // };
 
-window.onload = function () {
-	document.getElementById("myBtn").addEventListener("click", function () {
-		console.log("Sending info to extension");
+document.getElementById("myBtn").addEventListener("click", function () {
+	console.log("Sending info to extension");
 
-		// if (chrome) console.log("chrome is defined");
-		var editorExtensionId = "eanfbmfpilfndlojhlhmmneakpaoggak";
-		chrome.runtime.sendMessage(
-			editorExtensionId,
-			{ openUrlInEditor: url },
-			function (response) {
-				console.log("msg sent");
-				if (!response.success) handleError(url);
-			}
-		);
+	// if (chrome) console.log("chrome is defined");
+	var editorExtensionId = "eanfbmfpilfndlojhlhmmneakpaoggak";
+	chrome.runtime.sendMessage(
+		editorExtensionId,
+		{ openUrlInEditor: url },
+		function (response) {
+			console.log("msg sent");
+			if (!response.success) handleError(url);
+		}
+	);
 
-		// if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
-		// 	chrome.runtime.sendMessage(
-		// 		"feneepekkegnbffjepdhkdiggmebjifo",
-		// 		{ greeting: "yes" },
-		// 		onAccessApproved
-		// 	);
-		// } else {
-		// 	console.log("No chrome");
-		// }
-	});
-};
+	// if (chrome && chrome.runtime && chrome.runtime.sendMessage) {
+	// 	chrome.runtime.sendMessage(
+	// 		"feneepekkegnbffjepdhkdiggmebjifo",
+	// 		{ greeting: "yes" },
+	// 		onAccessApproved
+	// 	);
+	// } else {
+	// 	console.log("No chrome");
+	// }
+});
 
 // window.addEventListener('load',function(){
 // 	document.getElementById("id1").addEventListener("click", click_handler1, false);
