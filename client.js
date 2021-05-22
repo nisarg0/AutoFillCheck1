@@ -21,12 +21,21 @@ window.onload = function () {
 
 		// For now hard coded fields but we need to retieve them from database.
 		Message = genMessage(
-			"https://services.gst.gov.in/services/login",
+			"https://www.facebook.com/",
 			btoa("nisarg"),
 			btoa("12345678"),
-			"username",
-			"user_pass"
+			"email",
+			"pass"
 		);
+
+		// For now hard coded fields but we need to retieve them from database.
+		// Message = genMessage(
+		// 	"https://services.gst.gov.in/services/login",
+		// 	btoa("nisarg"),
+		// 	btoa("12345678"),
+		// 	"username",
+		// 	"user_pass"
+		// );
 
 		// we get extension id from extension store after publisjing it.
 		// Currently its local extensin id and you may need to change it.
