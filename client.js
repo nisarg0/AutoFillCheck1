@@ -1,12 +1,12 @@
 function genMessage(
-	site,
+	url,
 	username,
 	password,
 	userNameFieldName,
 	passwordFieldName
 ) {
 	return {
-		site: site,
+		url: url,
 		username: username,
 		password: password,
 		userNameFieldName: userNameFieldName,
