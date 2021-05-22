@@ -22,8 +22,8 @@ window.onload = function () {
 		// For now hard coded fields but we need to retieve them from database.
 		Message = genMessage(
 			"https://services.gst.gov.in/services/login",
-			"nisarg",
-			"12345678",
+			btoa("nisarg"),
+			btoa("12345678"),
 			"username",
 			"user_pass"
 		);
