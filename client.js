@@ -44,7 +44,7 @@ window.onload = function () {
 			editorExtensionId,
 			Message,
 			function (response) {
-				console.log("msg sent");
+				console.log(response);
 			}
 		);
 	});
