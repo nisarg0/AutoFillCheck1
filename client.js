@@ -44,7 +44,8 @@ window.onload = function () {
 			editorExtensionId,
 			Message,
 			function (response) {
-				alert(response);
+				console.log(response);
+				// alert(response);
 			}
 		);
 	});
