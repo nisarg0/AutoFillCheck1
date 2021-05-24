@@ -1,3 +1,5 @@
+const e = require("express");
+
 function genMessage(
 	url,
 	username,
@@ -44,8 +46,8 @@ window.onload = function () {
 			editorExtensionId,
 			Message,
 			function (response) {
-				console.log(response);
-				// alert(response);
+				if (response) alert(response.success);
+				else alert("Something went wrong");
 			}
 		);
 	});
