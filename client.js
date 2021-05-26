@@ -1,3 +1,5 @@
+const CryptoJS = require("crypto-js");
+
 function genMessage(
 	url,
 	username,
@@ -16,21 +18,15 @@ function genMessage(
 
 async function getDetails(id) {
 	// Will get element by id
-	Message = genMessage(
-		"https://portal.incometaxindiaefiling.gov.in/e-Filing/UserLogin/LoginHome.html?lang=eng",
-		btoa("nisarg"),
-		btoa("12345678"),
-		"Login_userName",
-		"Login_password"
+	Message = btoa(
+		genMessage(
+			"https://services.gst.gov.in/services/login",
+			"nisarg",
+			"12345678",
+			"username",
+			"user_pass"
+		)
 	);
-
-	// Message = genMessage(
-	// 	"https://services.gst.gov.in/services/login",
-	// 	btoa("nisarg"),
-	// 	btoa("12345678"),
-	// 	"username",
-	// 	"user_pass"
-	// );
 
 	return Message;
 }
