@@ -17,11 +17,11 @@ function genMessage(
 async function getDetails(id) {
 	// Will get element by id
 	Message = genMessage(
-		"https://www.facebook.com/",
+		"https://retail.onlinesbi.com/retail/login.htm",
 		btoa("nisarg"),
 		btoa("12345678"),
-		"email",
-		"pass"
+		"username",
+		"label2"
 	);
 
 	// Message = genMessage(
