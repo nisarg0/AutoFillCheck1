@@ -19,8 +19,8 @@ async function getDetails(id) {
 	Message = JSON.stringify(
 		genMessage(
 			"https://services.gst.gov.in/services/login",
-			"nisarg",
-			"12345678",
+			encodeURIComponent("nisarg"),
+			encodeURIComponent("12345678"),
 			"username",
 			"user_pass"
 		)
