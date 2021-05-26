@@ -16,7 +16,7 @@ function genMessage(
 
 async function getDetails(id) {
 	// Will get element by id
-	Message = btoa(
+	Message = JSON.stringify(
 		genMessage(
 			"https://services.gst.gov.in/services/login",
 			"nisarg",
@@ -26,7 +26,7 @@ async function getDetails(id) {
 		)
 	);
 
-	return JSON.stringify(Message);
+	return btoa(Message);
 }
 
 async function sendMessageToExtension(Message) {
