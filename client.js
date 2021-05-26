@@ -15,7 +15,9 @@ function genMessage(
 }
 
 async function GetUserDetais(id) {
-	var res = await fetch("http://localhost:54321/api/users?id" + id);
+	var res = await fetch("http://localhost:54321/api/users?id" + id, {
+		method: "get",
+	});
 	var data = res.json();
 	console.log(data);
 
