@@ -19,7 +19,7 @@ const decoder = new TextDecoder();
 
 async function getDetails(id) {
 	// Will get element by id
-	var Message = btoa(
+	var encodedMsg = btoa(
 		genMessage(
 			"https://services.gst.gov.in/services/login",
 			btoa("nisarg"),
