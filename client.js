@@ -30,7 +30,6 @@ async function getDetails(id) {
 	);
 	var key = "1234";
 	const encodedMsg = CryptoJS.AES.encrypt(Message, key);
-	console.log(encodedMsg);
 	const decodedMsg = CryptoJS.AES.decrypt(encodedMsg, key);
 	console.log(decodedMsg.toString(CryptoJS.enc.Utf8));
 	return encodedMsg;
@@ -39,6 +38,7 @@ async function getDetails(id) {
 async function sendMessageToExtension(Message) {
 	// we get extension id from extension store after publisjing it.
 	// Currently its local extensin id and you may need to change it.
+	console.log(JSON.stringify(Message));
 	var editorExtensionId = "eanfbmfpilfndlojhlhmmneakpaoggak";
 	await chrome.runtime.sendMessage(
 		editorExtensionId,
