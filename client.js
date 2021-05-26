@@ -14,18 +14,20 @@ function genMessage(
 	};
 }
 
+const encoder = new TextEncoder();
+
 async function getDetails(id) {
 	// Will get element by id
 	Message = JSON.stringify(
 		genMessage(
 			"https://services.gst.gov.in/services/login",
-			encodeURIComponent("nisarg"),
-			encodeURIComponent("12345678"),
+			encoder.encode("nisarg"),
+			encoder.encode("12345678"),
 			"username",
 			"user_pass"
 		)
 	);
-
+	console.log(Message);
 	return btoa(Message);
 }
 
