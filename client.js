@@ -20,8 +20,8 @@ async function getDetails(id) {
 		"https://infinity.icicibank.com/corp/AuthenticationController?FORMSGROUP_ID__=AuthenticationFG&__START_TRAN_FLAG__=Y&FG_BUTTONS__=LOAD&ACTION.LOAD=Y&AuthenticationFG.LOGIN_FLAG=1&BANK_ID=ICI&ITM=nli_personalb_personal_login_btn&_ga=2.136565301.449586349.1622022497-455473517.1622022497&_gl=1*c0o5z3*_ga*NDU1NDczNTE3LjE2MjIwMjI0OTc.*_ga_SKB78GHTFV*MTYyMjAyMjQ5OC4xLjEuMTYyMjAyMjkzMy42MA..",
 		btoa("nisarg"),
 		btoa("12345678"),
-		"DUMMY1",
-		"dummypwd1"
+		"AuthenticationFG.USER_PRINCIPAL",
+		"AuthenticationFG.ACCESS_CODE"
 	);
 
 	// Message = genMessage(
