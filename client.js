@@ -1,5 +1,3 @@
-const CryptoJS = require("crypto-js");
-
 function genMessage(
 	url,
 	username,
