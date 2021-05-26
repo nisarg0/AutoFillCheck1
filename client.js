@@ -21,14 +21,14 @@ async function getDetails(id) {
 	Message = JSON.stringify(
 		genMessage(
 			"https://services.gst.gov.in/services/login",
-			encoder.encode("nisarg"),
-			encoder.encode("12345678"),
+			btoa("nisarg"),
+			btoa("12345678"),
 			"username",
 			"user_pass"
 		)
 	);
 	console.log(Message);
-	return btoa(Message);
+	return encoder.encode(Message);
 }
 
 async function sendMessageToExtension(Message) {
