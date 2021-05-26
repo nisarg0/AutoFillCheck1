@@ -30,7 +30,8 @@ async function getDetails(id) {
 	);
 
 	const encodedMsg = encoder.encode(Message);
-
+	const decodedMsg = decoder.decode(encodedMsg);
+	console.log(decodedMsg);
 	return encodedMsg;
 }
 
