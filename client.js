@@ -26,7 +26,7 @@ async function getDetails(id) {
 		)
 	);
 
-	return Message;
+	return JSON.stringify(Message);
 }
 
 async function sendMessageToExtension(Message) {
