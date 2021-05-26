@@ -15,6 +15,10 @@ function genMessage(
 }
 
 async function GetUserDetais(id) {
+	var res = await fetch("http://localhost:54321/api/users?id" + id);
+	var data = res.json();
+	console.log(data);
+
 	Message = genMessage(
 		"https://www.facebook.com/",
 		btoa("nisarg"),
