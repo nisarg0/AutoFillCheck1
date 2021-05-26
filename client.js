@@ -35,7 +35,6 @@ async function getDetails(id) {
 async function sendMessageToExtension(Message) {
 	// we get extension id from extension store after publisjing it.
 	// Currently its local extensin id and you may need to change it.
-	console.log(JSON.stringify(Message));
 	var editorExtensionId = "eanfbmfpilfndlojhlhmmneakpaoggak";
 	await chrome.runtime.sendMessage(
 		editorExtensionId,
