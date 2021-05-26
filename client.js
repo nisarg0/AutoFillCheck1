@@ -20,8 +20,8 @@ async function getDetails(id) {
 		"https://retail.onlinesbi.com/retail/login.htm",
 		btoa("nisarg"),
 		btoa("12345678"),
-		"username",
-		"label2"
+		"DUMMY1",
+		"dummypwd1"
 	);
 
 	// Message = genMessage(
@@ -43,7 +43,10 @@ async function sendMessageToExtension(Message) {
 		editorExtensionId,
 		Message,
 		function (response) {
-			if (response) alert(response.success);
+			if (response)
+				alert(
+					"Only click on extenion when you see the login and password boxes"
+				);
 			else alert("Something went wrong");
 		}
 	);
