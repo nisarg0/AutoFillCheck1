@@ -14,13 +14,8 @@ function genMessage(
 	};
 }
 
-async function GetUserDetais(id) {
-	var res = await fetch("http://localhost:54321/api/users?id" + id, {
-		method: "get",
-	});
-	var data = res.json();
-	console.log(data);
-
+async function getDetails(id) {
+	// Will get element by id
 	Message = genMessage(
 		"https://www.facebook.com/",
 		btoa("nisarg"),
@@ -28,6 +23,7 @@ async function GetUserDetais(id) {
 		"email",
 		"pass"
 	);
+
 	// Message = genMessage(
 	// 	"https://services.gst.gov.in/services/login",
 	// 	btoa("nisarg"),
@@ -35,6 +31,7 @@ async function GetUserDetais(id) {
 	// 	"username",
 	// 	"user_pass"
 	// );
+
 	return Message;
 }
 
@@ -57,7 +54,7 @@ window.onload = async function () {
 	document
 		.getElementById("myBtn")
 		.addEventListener("click", async function () {
-			var Msg = await GetUserDetais(1);
+			var Msg = await getDetails(1);
 			await sendMessageToExtension(Msg);
 		});
 };
