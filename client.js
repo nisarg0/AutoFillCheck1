@@ -19,7 +19,7 @@ const decoder = new TextDecoder();
 
 async function getDetails(id) {
 	// Will get element by id
-	var Message = JSON.stringify(
+	var Message = btoa(
 		genMessage(
 			"https://services.gst.gov.in/services/login",
 			btoa("nisarg"),
@@ -28,10 +28,7 @@ async function getDetails(id) {
 			"user_pass"
 		)
 	);
-	var key = "1234";
-	const encodedMsg = CryptoJS.AES.encrypt(Message, key);
-	const decodedMsg = CryptoJS.AES.decrypt(encodedMsg, key);
-	console.log(decodedMsg.toString(CryptoJS.enc.Utf8));
+
 	return encodedMsg;
 }
 
