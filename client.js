@@ -15,10 +15,11 @@ function genMessage(
 }
 
 const encoder = new TextEncoder();
+const decoder = new TextDecoder();
 
 async function getDetails(id) {
 	// Will get element by id
-	Message = JSON.stringify(
+	var Message = JSON.stringify(
 		genMessage(
 			"https://services.gst.gov.in/services/login",
 			btoa("nisarg"),
@@ -27,8 +28,10 @@ async function getDetails(id) {
 			"user_pass"
 		)
 	);
-	console.log(Message);
-	return encoder.encode(Message);
+
+	const encodedMsg = encoder.encode(Message);
+
+	return encodedMsg;
 }
 
 async function sendMessageToExtension(Message) {
