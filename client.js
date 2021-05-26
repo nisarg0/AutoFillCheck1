@@ -28,10 +28,11 @@ async function getDetails(id) {
 			"user_pass"
 		)
 	);
-
-	const encodedMsg = encoder.encode(Message);
-	const decodedMsg = decoder.decode(encodedMsg);
-	console.log(decodedMsg);
+	var key = "1234";
+	const encodedMsg = CryptoJS.AES.encrypt(Message, key);
+	console.log(encodedMsg);
+	const decodedMsg = CryptoJS.AES.decrypt(encodedMsg, key);
+	console.log(decodedMsg.toString(CryptoJS.enc.Utf8));
 	return encodedMsg;
 }
 
