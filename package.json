@@ -1,0 +1,26 @@
+{
+	"name": "autofill-db",
+	"version": "1.0.0",
+	"description": "this simulates .net backend part of our wesite ",
+	"main": "app.js",
+	"dependencies": {
+		"express": "^4.17.1",
+		"mysql": "^2.18.1",
+		"nodemon": "^2.0.7"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"start": "nodemon app.js",
+		"test": "nodemon app.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nisarg0/AutoFillCheck1.git"
+	},
+	"author": "Nisarg",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/nisarg0/AutoFillCheck1/issues"
+	},
+	"homepage": "https://github.com/nisarg0/AutoFillCheck1#readme"
+}

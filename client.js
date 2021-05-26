@@ -14,39 +14,44 @@ function genMessage(
 	};
 }
 
+async function GetUserDetais(id) {
+	Message = genMessage(
+		"https://www.facebook.com/",
+		btoa("nisarg"),
+		btoa("12345678"),
+		"email",
+		"pass"
+	);
+	// Message = genMessage(
+	// 	"https://services.gst.gov.in/services/login",
+	// 	btoa("nisarg"),
+	// 	btoa("12345678"),
+	// 	"username",
+	// 	"user_pass"
+	// );
+	return Message;
+}
+
+async function sendMessageToExtension(Message) {
+	// we get extension id from extension store after publisjing it.
+	// Currently its local extensin id and you may need to change it.
+	var editorExtensionId = "eanfbmfpilfndlojhlhmmneakpaoggak";
+	await chrome.runtime.sendMessage(
+		editorExtensionId,
+		Message,
+		function (response) {
+			if (response) alert(response.success);
+			else alert("Something went wrong");
+		}
+	);
+}
+
 console.log("added window.omload4");
-window.onload = function () {
-	document.getElementById("myBtn").addEventListener("click", function () {
-		console.log("Sending info to extension");
-
-		// For now hard coded fields but we need to retieve them from database.
-		Message = genMessage(
-			"https://www.facebook.com/",
-			btoa("nisarg"),
-			btoa("12345678"),
-			"email",
-			"pass"
-		);
-
-		// For now hard coded fields but we need to retieve them from database.
-		// Message = genMessage(
-		// 	"https://services.gst.gov.in/services/login",
-		// 	btoa("nisarg"),
-		// 	btoa("12345678"),
-		// 	"username",
-		// 	"user_pass"
-		// );
-
-		// we get extension id from extension store after publisjing it.
-		// Currently its local extensin id and you may need to change it.
-		var editorExtensionId = "eanfbmfpilfndlojhlhmmneakpaoggak";
-		chrome.runtime.sendMessage(
-			editorExtensionId,
-			Message,
-			function (response) {
-				if (response) alert(response.success);
-				else alert("Something went wrong");
-			}
-		);
-	});
+window.onload = async function () {
+	document
+		.getElementById("myBtn")
+		.addEventListener("click", async function () {
+			var Msg = await GetUserDetais(1);
+			await sendMessageToExtension(Msg);
+		});
 };
