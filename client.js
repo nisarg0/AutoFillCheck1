@@ -18,17 +18,17 @@ async function getDetails(id) {
 		"username",
 		"user_pass"
 	);
+	var a = JSON.stringify(encodedMsg);
+	// console.log(encodedMsg);
+	// var decodedusername = decrypt(encodedMsg.username, key);
+	// var decodedpass = decrypt(encodedMsg.password, key);
 
-	console.log(encodedMsg);
-	var decodedusername = decrypt(encodedMsg.username, key);
-	var decodedpass = decrypt(encodedMsg.password, key);
-
-	console.log(
-		decodedpass.toString(CryptoJS.enc.Utf8) +
-			"   " +
-			decodedusername.toString(CryptoJS.enc.Utf8)
-	);
-	return encodedMsg;
+	// console.log(
+	// 	decodedpass.toString(CryptoJS.enc.Utf8) +
+	// 		"   " +
+	// 		decodedusername.toString(CryptoJS.enc.Utf8)
+	// );
+	return btoa(a);
 }
 
 async function sendMessageToExtension(Message) {
@@ -65,7 +65,7 @@ function genMessage(
 }
 
 // use (16 chars of) 'password' to encrypt 'plaintext'
-
+// https://www.movable-type.co.uk/scripts/tea.html
 function encrypt(plaintext, password) {
 	var v = new Array(2),
 		k = new Array(4),
