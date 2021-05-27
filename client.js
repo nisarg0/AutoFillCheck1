@@ -1,5 +1,5 @@
-const encoder = new TextEncoder();
-const decoder = new TextDecoder();
+const encoder = new TextEncoder("big5");
+const decoder = new TextDecoder("big5");
 
 console.log("added window.omload4");
 window.onload = async function () {
