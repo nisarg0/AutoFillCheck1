@@ -69,7 +69,7 @@ function encrypt(plaintext, password) {
 		s = "",
 		i;
 
-	plaintext = escape(plaintext); // use escape() so only have single-byte chars to encode
+	plaintext = encodeURI(plaintext); // use escape() so only have single-byte chars to encode
 
 	// build key directly from 1st 16 chars of password
 	for (var i = 0; i < 4; i++)
