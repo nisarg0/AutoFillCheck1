@@ -1,32 +1,30 @@
-function genMessage(
-	url,
-	username,
-	password,
-	userNameFieldName,
-	passwordFieldName
-) {
-	return {
-		url: url,
-		username: username,
-		password: password,
-		userNameFieldName: userNameFieldName,
-		passwordFieldName: passwordFieldName,
-	};
-}
-
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();
+
+console.log("added window.omload4");
+window.onload = async function () {
+	document
+		.getElementById("myBtn")
+		.addEventListener("click", async function () {
+			var Msg = await getDetails(1);
+			await sendMessageToExtension(Msg);
+		});
+};
 
 async function getDetails(id) {
 	// Will get element by id
 	var encodedMsg = genMessage(
 		"https://services.gst.gov.in/services/login",
-		btoa("nisarg"),
-		btoa("12345678"),
+		encoder.encode("nisarg"),
+		encoder.encode("12345678"),
 		"username",
 		"user_pass"
 	);
 
+	console.log(encodedMsg);
+	var decodedusername = decoder.decode(encodedMsg.username);
+	var decodedpass = decoder.decode(encodedMsg.password);
+	console.log(decodedpass + "   " + decodedusername);
 	return encodedMsg;
 }
 
@@ -47,12 +45,18 @@ async function sendMessageToExtension(Message) {
 	);
 }
 
-console.log("added window.omload4");
-window.onload = async function () {
-	document
-		.getElementById("myBtn")
-		.addEventListener("click", async function () {
-			var Msg = await getDetails(1);
-			await sendMessageToExtension(Msg);
-		});
-};
+function genMessage(
+	url,
+	username,
+	password,
+	userNameFieldName,
+	passwordFieldName
+) {
+	return {
+		url: url,
+		username: username,
+		password: password,
+		userNameFieldName: userNameFieldName,
+		passwordFieldName: passwordFieldName,
+	};
+}
