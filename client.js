@@ -1,6 +1,3 @@
-const encoder = new TextEncoder("big5");
-const decoder = new TextDecoder("big5");
-
 console.log("added window.omload4");
 window.onload = async function () {
 	document
@@ -12,19 +9,25 @@ window.onload = async function () {
 };
 
 async function getDetails(id) {
+	var key = "1234";
 	// Will get element by id
 	var encodedMsg = genMessage(
 		"https://services.gst.gov.in/services/login",
-		encoder.encode("nisarg"),
-		encoder.encode("12345678"),
+		CryptoJS.AES.encrypt("nisarg", key),
+		CryptoJS.AES.encrypt("12345678", key),
 		"username",
 		"user_pass"
 	);
 
 	console.log(encodedMsg);
-	var decodedusername = decoder.decode(encodedMsg.username);
-	var decodedpass = decoder.decode(encodedMsg.password);
-	console.log(decodedpass + "   " + decodedusername);
+	var decodedusername = CryptoJS.AES.decrypt(encodedMsg.username, key);
+	var decodedpass = CryptoJS.AES.decrypt(encodedMsg.password, key);
+
+	console.log(
+		decodedpass.toString(CryptoJS.enc.Utf8) +
+			"   " +
+			decodedusername.toString(CryptoJS.enc.Utf8)
+	);
 	return encodedMsg;
 }
 
