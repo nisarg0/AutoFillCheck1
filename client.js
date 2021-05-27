@@ -18,17 +18,18 @@ async function getDetails(id) {
 		"username",
 		"user_pass"
 	);
+	var e = JSON.stringify(encodedMsg);
 
-	console.log(encodedMsg);
-	var decodedusername = CryptoJS.AES.decrypt(encodedMsg.username, key);
-	var decodedpass = CryptoJS.AES.decrypt(encodedMsg.password, key);
+	// console.log(encodedMsg);
+	// var decodedusername = CryptoJS.AES.decrypt(encodedMsg.username, key);
+	// var decodedpass = CryptoJS.AES.decrypt(encodedMsg.password, key);
 
-	console.log(
-		decodedpass.toString(CryptoJS.enc.Utf8) +
-			"   " +
-			decodedusername.toString(CryptoJS.enc.Utf8)
-	);
-	return encodedMsg;
+	// console.log(
+	// 	decodedpass.toString(CryptoJS.enc.Utf8) +
+	// 		"   " +
+	// 		decodedusername.toString(CryptoJS.enc.Utf8)
+	// );
+	return e;
 }
 
 async function sendMessageToExtension(Message) {
