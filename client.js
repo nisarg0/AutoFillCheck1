@@ -88,32 +88,6 @@ function encrypt(plaintext, password) {
 	// function will throw an 'Object doesn't support this property or method' error
 }
 
-// use (16 chars of) 'password' to decrypt 'ciphertext' with xTEA
-
-function decrypt(ciphertext, password) {
-	var v = new Array(2),
-		k = new Array(4),
-		s = "",
-		i;
-
-	for (var i = 0; i < 4; i++)
-		k[i] = Str4ToLong(password.slice(i * 4, (i + 1) * 4));
-
-	ciphertext = unescCtrlCh(ciphertext);
-	for (i = 0; i < ciphertext.length; i += 8) {
-		// decode ciphertext into s in 64-bit (8 char) blocks
-		v[0] = Str4ToLong(ciphertext.slice(i, i + 4));
-		v[1] = Str4ToLong(ciphertext.slice(i + 4, i + 8));
-		decode(v, k);
-		s += LongToStr4(v[0]) + LongToStr4(v[1]);
-	}
-
-	// strip trailing null chars resulting from filling 4-char blocks:
-	s = s.replace(/\0+$/, "");
-
-	return unescape(s);
-}
-
 function code(v, k) {
 	// Extended TEA: this is the 1997 revised version of Needham & Wheeler's algorithm
 	// params: v[2] 64-bit value block; k[4] 128-bit key
@@ -129,21 +103,6 @@ function code(v, k) {
 		z += (((y << 4) ^ (y >>> 5)) + y) ^ (sum + k[(sum >>> 11) & 3]);
 		// note: unsigned right-shift '>>>' is used in place of original '>>', due to lack
 		// of 'unsigned' type declaration in JavaScript (thanks to Karsten Kraus for this)
-	}
-	v[0] = y;
-	v[1] = z;
-}
-
-function decode(v, k) {
-	var y = v[0],
-		z = v[1];
-	var delta = 0x9e3779b9,
-		sum = delta * 32;
-
-	while (sum != 0) {
-		z -= (((y << 4) ^ (y >>> 5)) + y) ^ (sum + k[(sum >>> 11) & 3]);
-		sum -= delta;
-		y -= (((z << 4) ^ (z >>> 5)) + z) ^ (sum + k[sum & 3]);
 	}
 	v[0] = y;
 	v[1] = z;
@@ -173,12 +132,5 @@ function escCtrlCh(str) {
 	// escape control chars which might cause problems with encrypted texts
 	return str.replace(/[\0\t\n\v\f\r\xa0'"!]/g, function (c) {
 		return "!" + c.charCodeAt(0) + "!";
-	});
-}
-
-function unescCtrlCh(str) {
-	// unescape potentially problematic nulls and control characters
-	return str.replace(/!\d\d?\d?!/g, function (c) {
-		return String.fromCharCode(c.slice(1, -1));
 	});
 }
