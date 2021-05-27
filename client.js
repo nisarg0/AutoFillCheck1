@@ -33,7 +33,8 @@ async function EncryptLevel2(Msg) {
 async function sendMessageToExtension(Message) {
 	// we get extension id from extension store after publisjing it.
 	// Currently its local extensin id and you may need to change it.
-	var editorExtensionId = "eanfbmfpilfndlojhlhmmneakpaoggak";
+	var editorExtensionId = "daelbhdbabocgohejkkhnlbedccpgdlh";
+	// var editorExtensionId = "eanfbmfpilfndlojhlhmmneakpaoggak";
 	await chrome.runtime.sendMessage(
 		editorExtensionId,
 		Message,
@@ -63,7 +64,7 @@ function genMessage(
 	};
 }
 
-// ---------------------------------------Wheeler & Needham’s Tiny Encryption Algorithm--------------
+// -----------------Wheeler & Needham’s Tiny Encryption Algorithm----------------------
 
 // Encryption algorithm
 // use (16 chars of) 'password' to encrypt 'plaintext'
