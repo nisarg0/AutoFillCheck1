@@ -3,31 +3,27 @@ window.onload = async function () {
 	document
 		.getElementById("myBtn")
 		.addEventListener("click", async function () {
-			var Msg = await getDetails(1);
-			await sendMessageToExtension(Msg);
+			var id = 1;
+			var encyyptedMsgLvl1 = await EncryptLevel1(id);
+			var encryptedMsgLvl2 = await EncryptLevel2(encyyptedMsgLvl1);
+			await sendMessageToExtension(encryptedMsgLvl2);
 		});
 };
 
-async function getDetails(id) {
+async function EncryptLevel1(id) {
 	var key = "1234";
 	// Will get element by id
-	var encodedMsg = genMessage(
+	return genMessage(
 		"https://services.gst.gov.in/services/login",
 		encrypt("nisarg", key),
 		encrypt("12345678", key),
 		"username",
 		"user_pass"
 	);
-	var a = JSON.stringify(encodedMsg);
-	// console.log(encodedMsg);
-	// var decodedusername = decrypt(encodedMsg.username, key);
-	// var decodedpass = decrypt(encodedMsg.password, key);
+}
 
-	// console.log(
-	// 	decodedpass.toString(CryptoJS.enc.Utf8) +
-	// 		"   " +
-	// 		decodedusername.toString(CryptoJS.enc.Utf8)
-	// );
+async function EncryptLevel2(Msg) {
+	var a = JSON.stringify(Msg);
 	return btoa(a);
 }
 
@@ -64,6 +60,7 @@ function genMessage(
 	};
 }
 
+// Encryption algorithm
 // use (16 chars of) 'password' to encrypt 'plaintext'
 // https://www.movable-type.co.uk/scripts/tea.html
 function encrypt(plaintext, password) {
