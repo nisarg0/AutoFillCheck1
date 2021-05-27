@@ -10,6 +10,7 @@ window.onload = async function () {
 		});
 };
 
+// added Wheeler & Needham’s Tiny Encryption Algorithm only to username and password
 async function EncryptLevel1(id) {
 	var key = "1234";
 	// Will get element by id
@@ -22,11 +23,13 @@ async function EncryptLevel1(id) {
 	);
 }
 
+// Added a base-64 encoding
 async function EncryptLevel2(Msg) {
 	var a = JSON.stringify(Msg);
 	return btoa(a);
 }
 
+// Sends message to the extension
 async function sendMessageToExtension(Message) {
 	// we get extension id from extension store after publisjing it.
 	// Currently its local extensin id and you may need to change it.
@@ -59,6 +62,8 @@ function genMessage(
 		passwordFieldName: passwordFieldName,
 	};
 }
+
+// ---------------------------------------Wheeler & Needham’s Tiny Encryption Algorithm--------------
 
 // Encryption algorithm
 // use (16 chars of) 'password' to encrypt 'plaintext'
